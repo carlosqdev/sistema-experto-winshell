@@ -1,0 +1,120 @@
+Asks
+
+Ask pregunta1: 'No enciende la computadora'
+Domain 'SI','NO'
+
+Ask pregunta2: 'Esta conectado el cable de alimentación'
+Domain 'SI','NO'
+
+Ask pregunta3: 'Posee corriente el toma donde esta conectada'
+Domain 'SI','NO'
+
+Ask pregunta4: 'Tu computadora tarda en iniciar windows'
+Domain 'SI','NO'
+
+Ask pregunta5: 'Escuchas que tu disco duro hace sonidos como clic cada cierto tiempo'
+Domain 'SI','NO'
+
+Ask pregunta6: 'Tienes problemas al tratar de accesar a tus archivos'
+Domain 'SI','NO'
+
+Ask pregunta7: 'Aparición en la pantalla de información extraña e imágenes desconocidas'
+Domain 'SI','NO'
+
+Ask pregunta8: 'Ejecución automática de algunos programas.'
+Domain 'SI','NO'
+
+Ask pregunta9: 'Algún programa que intenta acceder a Internet sin nuestra autorización.'
+Domain 'SI','NO'
+
+Ask pregunta10: 'Algunos amigos o contactos que nos digan que recibieron un mensaje nuestro cuando nunca les enviamos un e-mail.'
+Domain 'SI','NO'
+
+Ask pregunta11: 'Con frecuencia notamos que se bloquea el sistema operativo.'
+Domain 'SI','NO'
+
+Ask pregunta12: 'Los programas se vuelven mucho más lentos en sus procesos habituales.'
+Domain 'SI','NO'
+
+Ask pregunta13: 'Se produce la pérdida parcial o total de archivos y carpetas, o bien notamos que en algunas ocasiones se modifican los contenidos sin nuestra autorización.'
+Domain 'SI','NO'
+
+Ask pregunta14: 'Mensaje de error de activación cuando abres Word, Excel, PowerPoint'
+Domain 'SI','NO'
+
+Ask pregunta15: 'No puedes modificar tu archivos de Word, Excel, PowerPoint'
+Domain 'SI','NO'
+
+Ask pregunta16: '¿Windows te muetra un mensaje de producto sin activar?'
+Domain 'SI','NO'
+
+Ask pregunta17: '¿No puedes personalizar tu apariencia de pantalla en windows?'
+Domain 'SI','NO'
+
+Ask pregunta18: '¿Sientes que windows esta trabajando un poco lento?'
+Domain 'SI','NO'
+
+Ask pregunta19: '¿Estas trabajando y de la nada tu computadora se apaga?'
+Domain 'SI','NO'
+
+Ask pregunta20: '¿El ultimo mantenimiento a tu computadora fue ya hace más de 6 meses?'
+Domain 'SI','NO'
+
+Rules
+
+rule 1
+if pregunta1 = 'SI' and pregunta2 = 'SI' and pregunta3 = 'SI'
+then diagnostico:= 'Puede que tu computadora tenga dañado la fuente de poder, si es una laptop tu cargador podria estar dañado'
+end;
+
+rule 2
+if pregunta4 = 'SI' and pregunta5 = 'SI' and pregunta6 = 'SI'
+then diagnostico:= 'El disco duro de tu computadora, puede que este dañado'
+end;
+
+rule 3
+if pregunta7 = 'SI' and pregunta8 = 'SI' and pregunta9 = 'SI' and pregunta10 = 'SI' and pregunta11 = 'SI' and pregunta12 = 'SI' and pregunta13 = 'SI'
+then diagnostico:= 'Tu computadora podria estar siendo victima de un virus informático'
+end;
+
+rule 4
+if pregunta14 = 'SI' and pregunta15 = 'SI'
+then diagnostico:= 'No posees una licencia para Microsoft Office'
+end;
+
+rule 5
+if pregunta16 = 'SI' and pregunta17 = 'SI' and pregunta18 = 'SI'
+then diagnostico:= 'No posees una licencia para Microsoft Windows'
+end;
+
+rule 6
+if pregunta12 = 'SI' and pregunta18 = 'SI' and pregunta19 = 'SI' and pregunta20 = 'SI'
+then diagnostico:= 'Tu computadora ya requiere un mantenimiento preventivo, el exceso de polvo causa que no trabaje de la forma en que habitualmente lo haria'
+end;
+
+
+Actions
+RESET ALL
+
+DISPLAY '/n/n Sistema Experto de algunas Fallas comunes en computadoras,/n/n',
+
+'/n/n 1: Haryeri Marcela Sáchez',
+
+'/n/n 2: Carlos Alberto Quintero Paisano',
+
+'/n/n 3: Marvin Fergunson Martinez',
+
+'/n/n 4: Justin',
+
+'/n/n/n/n UNIVERSIDAD DE MANAGUA (UDEM)',
+
+'/n/n INGENIERIA DE SISTEMAS'
+
+FIND diagnostico
+
+DISPLAY '/n/n ', diagnostico
+
+DISPLAY '/n/n Esperamos este Sistema Experto haya sido de gran ayuda./n/n'
+
+FIND AS
+End.
